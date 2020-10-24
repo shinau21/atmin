@@ -222,7 +222,7 @@ while True:
             file.write("\n")
             file.write("Record    : " + str(rec) + "\n")
             file.write("Waktu     : " + date + "\n")
-            file.write("Rekening  : " + str(atm.checkCard()))
+            file.write("Rekening  : " + str(atm.checkCard()) + "\n")
             file.write("Saldo IDR : Rp." + '{0:n}'.format(saldo_idr) + "\n")
             file.write("Saldo USD : $" + '{0:n}'.format(saldo_usd) + "\n")
             file.write("Saldo KWD : K.D " + '{0:n}'.format(saldo_kwd) + "\n")
