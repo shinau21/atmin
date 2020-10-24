@@ -5,7 +5,7 @@ class Customer(ATMCard):
     def __init__(self, card=0, custPin=0, name='', jk='', desa='', kec='', kab='', tml='', tl='', umur='', ibu='', jenis='', nik='', kk='', BalanceIDR=0, BalanceUSD=0, BalanceKWD=0):
         super().__init__(card, custPin, BalanceIDR, BalanceUSD, BalanceKWD)
 
-        db = pymysql.connect('localhost', 'root', 'smk2008', 'atmin')
+        db = pymysql.connect('localhost', 'root', '', 'atmin')
         cursor = db.cursor()
         sql = "SELECT * FROM nasabah WHERE rekening='%d'" % self.card
         cursor.execute(sql)
@@ -51,7 +51,7 @@ class Customer(ATMCard):
         return self.custPin
 
     def changePin(self, new):
-        db = pymysql.connect('localhost', 'root', 'smk2008', 'atmin')
+        db = pymysql.connect('localhost', 'root', '', 'atmin')
         cursor = db.cursor()
         sql = "UPDATE nasabah SET pin='%d' WHERE rekening='%d'" % (new, self.card)
         cursor.execute(sql)
@@ -71,7 +71,7 @@ class Customer(ATMCard):
 
     def witdrawIDR(self, nominal):
         self.BalanceIDR -= nominal
-        db = pymysql.connect('localhost', 'root', 'smk2008', 'atmin')
+        db = pymysql.connect('localhost', 'root', '', 'atmin')
         cursor = db.cursor()
         sql = "UPDATE nasabah SET saldo_idr='%d' WHERE rekening='%d'" % (self.BalanceIDR, self.card)
         cursor.execute(sql)
@@ -79,7 +79,7 @@ class Customer(ATMCard):
 
     def witdrawUSD(self, nominal):
         self.BalanceUSD -= nominal
-        db = pymysql.connect('localhost', 'root', 'smk2008', 'atmin')
+        db = pymysql.connect('localhost', 'root', '', 'atmin')
         cursor = db.cursor()
         sql = "UPDATE nasabah SET saldo_usd='%d' WHERE rekening='%d'" % (self.BalanceUSD, self.card)
         cursor.execute(sql)
@@ -87,7 +87,7 @@ class Customer(ATMCard):
 
     def witdrawKWD(self, nominal):
         self.BalanceKWD -= nominal
-        db = pymysql.connect('localhost', 'root', 'smk2008', 'atmin')
+        db = pymysql.connect('localhost', 'root', '', 'atmin')
         cursor = db.cursor()
         sql = "UPDATE nasabah SET saldo_kwd='%d' WHERE rekening='%d'" % (self.BalanceKWD, self.card)
         cursor.execute(sql)
@@ -95,7 +95,7 @@ class Customer(ATMCard):
 
     def depositIDR(self, nominal):
         self.BalanceIDR += nominal
-        db = pymysql.connect('localhost', 'root', 'smk2008', 'atmin')
+        db = pymysql.connect('localhost', 'root', '', 'atmin')
         cursor = db.cursor()
         sql = "UPDATE nasabah SET saldo_kwd='%d' WHERE rekening='%d'" % (self.BalanceIDR, self.card)
         cursor.execute(sql)
@@ -103,7 +103,7 @@ class Customer(ATMCard):
 
     def depositUSD(self, nominal):
         self.BalanceUSD += nominal
-        db = pymysql.connect('localhost', 'root', 'smk2008', 'atmin')
+        db = pymysql.connect('localhost', 'root', '', 'atmin')
         cursor = db.cursor()
         sql = "UPDATE nasabah SET saldo_kwd='%d' WHERE rekening='%d'" % (self.BalanceUSD, self.card)
         cursor.execute(sql)
@@ -111,7 +111,7 @@ class Customer(ATMCard):
 
     def depositKWD(self, nominal):
         self.BalanceKWD += nominal
-        db = pymysql.connect('localhost', 'root', 'smk2008', 'atmin')
+        db = pymysql.connect('localhost', 'root', '', 'atmin')
         cursor = db.cursor()
         sql = "UPDATE nasabah SET saldo_kwd='%d' WHERE rekening='%d'" % (self.BalanceKWD, self.card)
         cursor.execute(sql)
