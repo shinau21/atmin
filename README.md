@@ -7,7 +7,7 @@ ATM Mini (ATMIN) Python ini digunakan selayaknya mesin ATM pada umumnya.
 
 Fitur ATMIN:
 
-- 1 Akun ATMIN.
+- Multiple Akun ATMIN.
 - 3 Jenis Saldo.
 - 3 Opsi Tarik Uang.
 - 3 Opsi Simpan Uang.
@@ -19,7 +19,7 @@ Code Editor : VSCode [[LINK]](https://code.visualstudio.com/download)
 
 Python Version : 3.8 [[LINK]](https://www.python.org/downloads/release/python-386/)
 
-MariaDB Version : 10.x
+MariaDB Version : 10.x [[LINK]](https://mariadb.com/downloads/)
 
 ## Setup
 
@@ -42,11 +42,11 @@ kemudian install library pymysql dengan cara
 ```bash
 python3 -m pip install pymysql
 ```
-
+sesuaikan koneksi user dan password database di customer.py
 setelah itu jalankan atm_program.py
 
 ```bash
-python3 atm_program.pyc
+python3 atm_program.py
 ```
 
 ## Donasi Pengembangan
@@ -55,8 +55,6 @@ Dukung kami dengan cara donasi ke Rekening dibawah ini, donasi anda sangat berma
 
 ```bash
 DANA      : 085718683442
-
-Briva BRI : 8881 0 0857 1868 3442
 
 Briva BCA : 3901 0857 1868 3442
 ```

@@ -19,7 +19,7 @@ SET time_zone = "+07:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `shinau21_bank`
+-- Database: `atmin`
 --
 
 -- --------------------------------------------------------
@@ -29,8 +29,8 @@ SET time_zone = "+07:00";
 --
 
 CREATE TABLE `nasabah`  (
-  `id` int(30) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `rekening` int(10) NOT NULL,
+  `rekening` int(10) NOT NULL PRIMARY KEY,
+  `pin` varchar(8) NOT NULL,
   `nama` varchar(30) NOT NULL,
   `jk` char(1) NOT NULL,
   `alamat` varchar(100) NOT NULL,
@@ -43,7 +43,6 @@ CREATE TABLE `nasabah`  (
   `jenis` varchar(10) NOT NULL,
   `nik` varchar(16) NOT NULL,
   `kk` varchar(16) NOT NULL,
-  `pin` varchar(8) NOT NULL,
   `saldo_idr` varchar(101) NOT NULL,
   `saldo_usd` varchar(101) NOT NULL,
   `saldo_kwd` varchar(101) NOT NULL,
@@ -56,8 +55,9 @@ CREATE TABLE `nasabah`  (
 -- Dump dari tabel `nasabah`
 --
 
-INSERT INTO `nasabah` (`rekening`, `nama`, `jk`, `alamat`, `kec`, `kab`, `tempat_lahir`, `tanggal_lahir`, `umur`, `nama_ibu`, `jenis`, `nik`, `kk`, `pin`, `saldo_idr`, `saldo_usd`, `saldo_kwd`) VALUES
-('1234567890', 'RAFLI SETIAWAN', 'L', 'RAKIT RT 02 / RW 03', 'RAKIT', 'BANJARNEGARA', 'BANJARNEGARA', '2000-04-18', '20', 'SITI MARKHATUN', 'member', '1234567890123456', '0987654321098765', '12121212', '10000000', '100.00', '1000.00');
+INSERT INTO `nasabah` (`rekening`, `pin`, `nama`, `jk`, `alamat`, `kec`, `kab`, `tempat_lahir`, `tanggal_lahir`, `umur`, `nama_ibu`, `jenis`, `nik`, `kk`, `saldo_idr`, `saldo_usd`, `saldo_kwd`) VALUES
+('1234567890', '12121212', 'RAFLI SETIAWAN', 'L', 'RAKIT RT 02 / RW 03', 'RAKIT', 'BANJARNEGARA', 'BANJARNEGARA', '2000-04-18', '20', 'SITI MARKHATUN', 'member', '1234567890123456', '0987654321098765', '10000000', '100.00', '1000.00'),
+('1234567891', '12121212', 'PROGATE INDONESIA', 'L', 'RAKIT RT 02 / RW 03', 'RAKIT', 'BANJARNEGARA', 'BANJARNEGARA', '2000-04-18', '20', 'SITI MARKHATUN', 'member', '1234567890123456', '0987654321098765', '10000000', '110.00', '1000.00');
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
