@@ -27,33 +27,49 @@ def clear():
         _ = system('clear')
     
 locale.setlocale(locale.LC_ALL, '')
-
+status = False
 while True:
-    clear()
-    banner()
-    card = int(input("Masukan Nomor Kartu Anda : "))
-    pin = int(input("Masukan PIN Anda : "))
     count = 0
+    while (status == False and count == 0):
+        clear()
+        banner()
+        card = int(input("Masukan Nomor Kartu Anda : "))
+        pin = int(input("Masukan PIN Anda : "))
+        
+        cl = checklogin(card,pin)
+        if (cl != False):
+            status = True
+        else:
+            count += 1
 
-    while (checklogin(card,pin) == False and count <2 ):
+
+    while (status == False and count > 0 ):
         clear()
         banner()
         print("PIN yang anda masukan salah, silahkan coba lagi")
         pin = int(input("Masukan Kembali PIN Anda : "))
-        count += 1
-        if (count == 2):
+        cl = checklogin(card,pin)
+        if (cl != False):
+            status = True
+        else:
+            count += 1
+
+        if (count == 3):
             print("Error, Silahkan coba lagi")
             exit()
-    while (checklogin(card,pin) == True):
+
+    while (status == True):
         atm = Customer(card)
         clear()
         banner()
+        print("Nama : " + atm.checkName())
+        print("")
         print("1. Cek Saldo")
         print("2. Tarik Saldo")
         print("3. Simpan Saldo")
         print("4. Ganti PIN")
         print("5. Info Pengguna")
-        print("0. Keluar")
+        print("0. Logout")
         print("")
         pil = input("Masukan Inputan (0-5) :")
         if pil == '1':
@@ -227,7 +243,7 @@ while True:
             file.write("Saldo USD : $" + '{0:n}'.format(saldo_usd) + "\n")
             file.write("Saldo KWD : K.D " + '{0:n}'.format(saldo_kwd) + "\n")
             file.close()
-            exit()
+            status = False
         else:
             clear()
             banner()
