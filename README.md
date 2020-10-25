@@ -57,7 +57,7 @@ python3 atm_program.py
 Dukung kami dengan cara donasi ke Rekening dibawah ini, donasi anda sangat bermanfaat untuk pengembangan kami selanjutnya
 <p align="center">
 DANA :</br>
-    <img src="assets/img/dana.png" width="200"></img></br>
+    <a href="https://link.dana.id/qr/2dvmeziz" target="_blank"><img src="assets/img/dana.png" width="200"></img></a></br>
 </br>
 SocialBuzz :</br>
    <a href="https://sociabuzz.com/shinau21/donate" target="_blank"><img src="assets/img/socialbuzz.png" width="200"></img></a>
