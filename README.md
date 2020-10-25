@@ -13,7 +13,7 @@ Fitur ATMIN:
 - 3 Opsi Simpan Uang.
 - Logging ke dalam file.
 
-## Requirement
+## Bahan
 
 Code Editor : VSCode [[LINK]](https://code.visualstudio.com/download)
 
@@ -23,26 +23,28 @@ MariaDB Version : 10.x [[LINK]](https://mariadb.com/downloads/)
 
 ## Setup
 
-Install terlebih dahulu requirement diatas, lalu buka cmd / terminal, 
+Install terlebih dahulu bahan diatas, lalu buka cmd / terminal, 
 
 buat database dengan nama atmin, caranya
 
 ```bash
-mysql -u root -p
+mysql -u user -p
 
 CREATE DATABASE atmin;
 exit
 
-mysql -u root -p atmin < config/config.sql
+mysql -u user -p atmin < config/config.sql
 ```
 
+default user mariadb = root</br>default root password =
+
+sesuaikan koneksi user dan password database di customer.py sesuai dengan koneksi database anda.
 
 kemudian install library pymysql dengan cara
 
 ```bash
 python3 -m pip install pymysql
 ```
-sesuaikan koneksi user dan password database di customer.py
 
 setelah itu jalankan atm_program.py
 
@@ -53,15 +55,15 @@ python3 atm_program.py
 ## Donasi Pengembangan
 
 Dukung kami dengan cara donasi ke Rekening dibawah ini, donasi anda sangat bermanfaat untuk pengembangan kami selanjutnya
+<p align="center">
+DANA :</br>
+    <img src="assets/img/dana.png" width="200"></img></br>
+</br>
+SocialBuzz :</br>
+   <a href="https://sociabuzz.com/shinau21/donate" target="_blank"><img src="assets/img/socialbuzz.png" width="200"></img></a>
 
-```bash
-DANA      : 085718683442
-
-Briva BCA : 3901 0857 1868 3442
-```
-
-## Contact
-WA : [RAFLI SETIAWAN](https://wa.me/6285702429294).
+## Kontak
+Untuk request project silahkan hubungi lewat WA : [RAFLI SETIAWAN](https://wa.me/6285702429294).
 
 ## Lisensi
 
