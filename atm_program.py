@@ -1,6 +1,8 @@
 import datetime
 import locale
 import os
+import os.path
+from os import path
 from time import sleep
 from random import randint
 from os import system,name
@@ -245,16 +247,34 @@ while True:
             print("Saldo IDR : Rp.", '{0:n}'.format(saldo_idr))
             print("Saldo USD : $", '{0:n}'.format(saldo_usd))
             print("Saldo KWD : K.D ", '{0:n}'.format(saldo_kwd))
+            
+            if(path.exists("nasabah\\" + str(atm.checkCard()) + ".txt")):
+                file = open("nasabah\\" + str(atm.checkCard()) + ".txt", "a")
+                file.write("\n")
+                file.write("Record    : " + str(rec) + "\n")
+                file.write("Waktu     : " + date + "\n")
+                file.write("Rekening  : " + str(atm.checkCard()) + "\n")
+                file.write("Saldo IDR : Rp." + '{0:n}'.format(saldo_idr) + "\n")
+                file.write("Saldo USD : $" + '{0:n}'.format(saldo_usd) + "\n")
+                file.write("Saldo KWD : K.D " + '{0:n}'.format(saldo_kwd) + "\n")
+                file.close()
+            else:
+                file = open("nasabah\\" + str(atm.checkCard()) + ".txt", "w+")
+                file.write("===================================================\n")
+                file.write("                  Riwayat Nasabah                  \n")
+                file.write("===================================================\n")
+                file.write("No Rek    : " + str(atm.checkCard()) + "\n")
+                file.write("Nama      : " + str(atm.checkName()) + "\n")
+                file.write("\n")
+                file.write("\n")
+                file.write("Record    : " + str(rec) + "\n")
+                file.write("Waktu     : " + date + "\n")
+                file.write("Rekening  : " + str(atm.checkCard()) + "\n")
+                file.write("Saldo IDR : Rp." + '{0:n}'.format(saldo_idr) + "\n")
+                file.write("Saldo USD : $" + '{0:n}'.format(saldo_usd) + "\n")
+                file.write("Saldo KWD : K.D " + '{0:n}'.format(saldo_kwd) + "\n")
+                file.close()
 
-            file = open("history.txt", "a")
-            file.write("\n")
-            file.write("Record    : " + str(rec) + "\n")
-            file.write("Waktu     : " + date + "\n")
-            file.write("Rekening  : " + str(atm.checkCard()) + "\n")
-            file.write("Saldo IDR : Rp." + '{0:n}'.format(saldo_idr) + "\n")
-            file.write("Saldo USD : $" + '{0:n}'.format(saldo_usd) + "\n")
-            file.write("Saldo KWD : K.D " + '{0:n}'.format(saldo_kwd) + "\n")
-            file.close()
             status = False
         else:
             clear()
