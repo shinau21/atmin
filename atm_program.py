@@ -97,11 +97,15 @@ while True:
                 lmt_tidr = 50000
                 print("Minimal Penarikan Saldo IDR = Rp.", '{0:n}'.format(lmt_tidr))
                 inp_nom = int(input("Masukan Nominal IDR Yang Akan Ditarik : "))
+                s_idr = atm.checkIDR() - inp_nom
                 if (inp_nom >= lmt_tidr):
-                    if (atm.checkIDR() >= inp_nom):
+                    if (atm.checkIDR() >= inp_nom and s_idr >= lmt_tidr):
                         atm.witdrawIDR(inp_nom)
                         print("Saldo IDR Yang Anda Tarik : Rp.", str(inp_nom))
                         print("Sisa Saldo IDR Anda : Rp.", '{0:n}'.format(atm.checkIDR()))
+                        sleep(2)
+                    elif (s_idr < lmt_tidr):
+                        print("Saldo Tersisa Harus Lebih Dari Rp." + str(lmt_tidr-1))
                         sleep(2)
                     else:
                         print("Saldo IDR Tidak Cukup Untuk Melakukan Penarikan")
@@ -119,11 +123,15 @@ while True:
                 lmt_tusd = 10.00
                 print("Minimal Penarikan Saldo USD = $", '{0:n}'.format(lmt_tusd))
                 inp_nom = float(input("Masukan Nominal USD Yang Akan Ditarik : "))
+                s_usd = atm.checkUSD() - inp_nom
                 if (inp_nom >= lmt_tusd):
-                    if (atm.checkUSD() >= inp_nom):
+                    if (atm.checkUSD() >= inp_nom and s_usd >= lmt_tusd):
                         atm.witdrawUSD(inp_nom)
                         print("Saldo USD Yang Anda Tarik : Rp.", str(inp_nom))
                         print("Sisa Saldo USD Anda : Rp.", '{0:n}'.format(atm.checkUSD()))
+                        sleep(2)
+                    elif (s_usd < lmt_tusd):
+                        print("Saldo Tersisa Harus Lebih Dari $" + str(lmt_tusd-0.01))
                         sleep(2)
                     else:
                         print("Saldo USD Tidak Cukup Untuk Melakukan Penarikan")
@@ -141,9 +149,13 @@ while True:
                 lmt_tkwd = 5.00
                 print("Minimal Penarikan Saldo KWD = " + str(lmt_tkwd))
                 inp_nom = float(input("Masukan Nominal KWD Yang Akan Ditarik : "))
+                s_kwd = atm.checkKWD() - inp_nom
                 if (inp_nom >= lmt_tkwd):
-                    if (atm.checkKWD() >= inp_nom):
+                    if (atm.checkKWD() >= inp_nom and s_kwd >= 5.00):
                         atm.witdrawKWD(inp_nom)
+                    elif (s_kwd < lmt_tkwd):
+                        print("Saldo Tersisa Harus Lebih Dari Rp." + str(lmt_tkwd-0.01))
+                        sleep(2)
                     else:
                         print("Saldo KWD Tidak Cukup Untuk Melakukan Penarikan")
                         sleep(2)
